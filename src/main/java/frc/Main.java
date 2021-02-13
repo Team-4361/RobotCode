@@ -39,5 +39,5 @@ public class Main {
      * means (or why you would even care).
      * </p>
      */
-    public static String ROBOT_MODE = "SwervePathfinderTest";
+    public static String ROBOT_MODE = "Benchmark"/*"SwervePathfinderTest"*/;
 }
