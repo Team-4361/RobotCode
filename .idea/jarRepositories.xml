@@ -51,5 +51,10 @@
       <option name="name" value="WPIcda7b4b1-d003-44ac-a1ef-485c1347059a_0Release" />
       <option name="url" value="http://www.revrobotics.com/content/sw/color-sensor-v3/sdk/maven/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="WPI515fe07e-bfc6-11fa-b3de-0242ac130004 _0Release" />
+      <option name="name" value="WPI515fe07e-bfc6-11fa-b3de-0242ac130004 _0Release" />
+      <option name="url" value="https://maven.photonvision.org/repository/internal" />
+    </remote-repository>
   </component>
 </project>

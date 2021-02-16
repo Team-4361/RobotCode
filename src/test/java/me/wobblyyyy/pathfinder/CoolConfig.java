@@ -1,7 +1,7 @@
 package me.wobblyyyy.pathfinder;
 
 import me.wobblyyyy.pathfinder.config.PathfinderConfig;
-import me.wobblyyyy.pathfinder.core.Followers;
+import me.wobblyyyy.pathfinder.followers.Followers;
 import me.wobblyyyy.pathfinder.util.RobotProfile;
 
 public class CoolConfig extends PathfinderConfig {

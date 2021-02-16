@@ -38,6 +38,12 @@ public class Main {
      * Go read the rest of the JavaDoc for this class to figure out what this
      * means (or why you would even care).
      * </p>
+     *
+     * <p>
+     * 2021's swerve code is named "Swerve Test A". There's more stuff that
+     * needs to happen, we need to make different robot modes, whatever - but
+     * the name of (hopefully working) 2021 code is "Swerve Test A".
+     * </p>
      */
-    public static String ROBOT_MODE = "Benchmark"/*"SwervePathfinderTest"*/;
+    public static String ROBOT_MODE = "Swerve Test A";
 }
