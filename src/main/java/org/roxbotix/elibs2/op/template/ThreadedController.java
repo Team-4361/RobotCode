@@ -3,8 +3,7 @@ package org.roxbotix.elibs2.op.template;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import org.roxbotix.elibs2.controller.Controller;
-import org.roxbotix.elibs2.controller.DualStickConverter;
-import org.roxbotix.elibs2.controller.Stick;
+import frc.robot.Stick;
 
 /**
  * A threaded and controllable template op mode.

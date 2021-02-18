@@ -30,6 +30,6 @@ public final class Main {
      * </p>
      */
     public static void main(String... args) {
-        RobotBase.startRobot(ModeManager::get);
+        RobotBase.startRobot(Robot::new);
     }
 }

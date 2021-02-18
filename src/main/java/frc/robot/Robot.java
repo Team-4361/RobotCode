@@ -4,21 +4,49 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
- * The VM is configured to automatically run this class, and to call the functions corresponding to
- * each mode, as described in the TimedRobot documentation. If you change the name of this class or
- * the package after creating this project, you must also update the build.gradle file in the
- * project.
+ * As of 2/18/2021, a simplified version of the robot's codebase is to be
+ * kept in a separate repository.
+ *
+ * <p>
+ * This simplified code should utilize only a single package (frc.robot) and
+ * not depend on any JNIs or additional libraries that aren't included in
+ * wpilib's Maven repository.
+ * </p>
+ *
+ * <p>
+ * Multi-threading here might still be a good idea, however. Re-hashing an
+ * entire codebase to operate on a single thread would be incredibly and
+ * painstakingly challenging. Should we extend the {@code ThreadedController}
+ * class provided by elibs2 to make use of multi-threading?
+ * </p>
+ *
+ * <p>
+ * Motor construction and initialization should be handled by the init
+ * phase of the robot's operation. Drive control should be available in
+ * TeleOp, by making use of the controller inputs the drive station should
+ * have.
+ * </p>
+ *
+ * @author Team 4361 - ROXBOTIX
+ * @author Colin Robertson
  */
 public class Robot extends TimedRobot {
   private static final String kDefaultAuto = "Default";
   private static final String kCustomAuto = "My Auto";
   private String m_autoSelected;
   private final SendableChooser<String> m_chooser = new SendableChooser<>();
+
+  Drivetrain drivetrain = new Drivetrain();
+  Joystick _left = new Joystick(0);
+  Joystick _right = new Joystick(0);
+  Stick left;
+  Stick right;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -29,6 +57,10 @@ public class Robot extends TimedRobot {
     m_chooser.setDefaultOption("Default Auto", kDefaultAuto);
     m_chooser.addOption("My Auto", kCustomAuto);
     SmartDashboard.putData("Auto choices", m_chooser);
+
+    drivetrain.init();
+    left = new Stick(_left);
+    right = new Stick(_right);
   }
 
   /**
@@ -41,16 +73,6 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {}
 
-  /**
-   * This autonomous (along with the chooser code above) shows how to select between different
-   * autonomous modes using the dashboard. The sendable chooser code works with the Java
-   * SmartDashboard. If you prefer the LabVIEW Dashboard, remove all of the chooser code and
-   * uncomment the getString line to get the auto name from the text box below the Gyro
-   *
-   * <p>You can add additional auto modes by adding additional comparisons to the switch structure
-   * below with additional strings. If using the SendableChooser make sure to add them to the
-   * chooser code above as well.
-   */
   @Override
   public void autonomousInit() {
     m_autoSelected = m_chooser.getSelected();
@@ -78,7 +100,14 @@ public class Robot extends TimedRobot {
 
   /** This function is called periodically during operator control. */
   @Override
-  public void teleopPeriodic() {}
+  public void teleopPeriodic() {
+    double lsx = left.getX();
+    double lsy = left.getY();
+    double rsx = right.getX();
+    double rsy = right.getY();
+
+    drivetrain.drive(lsx, lsy, rsx, rsy);
+  }
 
   /** This function is called once when the robot is disabled. */
   @Override

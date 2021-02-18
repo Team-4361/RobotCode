@@ -1,6 +1,7 @@
 package org.roxbotix.elibs2.controller;
 
 import edu.wpi.first.wpilibj.Joystick;
+import frc.robot.Stick;
 
 /**
  * Used to emulate an Xbox controller by using two joysticks.
